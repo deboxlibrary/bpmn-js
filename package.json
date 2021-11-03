@@ -1,6 +1,6 @@
 {
   "name": "@deboxsoft/bpmn-js",
-  "version": "8.8.2",
+  "version": "8.8.3",
   "description": "A bpmn 2.0 toolkit and web modeler",
   "main": "index.js",
   "files": [
@@ -53,6 +53,9 @@
   "sideEffects": [
     "*.css"
   ],
+  "publishConfig": {
+    "access": "public"
+  },
   "devDependencies": {
     "@rollup/plugin-commonjs": "^19.0.0",
     "@rollup/plugin-node-resolve": "^13.0.0",
