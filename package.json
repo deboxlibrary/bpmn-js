@@ -1,6 +1,6 @@
 {
   "name": "@deboxsoft/bpmn-js",
-  "version": "8.8.3",
+  "version": "9.0.1-beta.1",
   "description": "A bpmn 2.0 toolkit and web modeler",
   "main": "index.js",
   "files": [
@@ -24,7 +24,10 @@
     "collect-translations": "cross-env COLLECT_TRANSLATIONS=1 npm test",
     "test:distro": "node tasks/test-distro.js",
     "postversion": "run-s distro test:distro",
-    "prepare": "run-s distro"
+    "prepare": "run-s distro",
+    "bump": "bump -c \"release client v\"",
+    "release": "yarpm run bump -- -t \"client-v\" && yarpm publish",
+    "release:dev": "git add . && yarpm run bump --  -p prerelease && yarpm-pnpm publish --tag dev --no-git-checks"
   },
   "repository": {
     "type": "git",
@@ -57,6 +60,7 @@
     "access": "public"
   },
   "devDependencies": {
+    "@nurdiansyah/bump": "^6.1.2",
     "@rollup/plugin-commonjs": "^19.0.0",
     "@rollup/plugin-node-resolve": "^13.0.0",
     "bpmn-font": "^0.10.0",
@@ -83,7 +87,8 @@
     "rollup-plugin-terser": "^7.0.2",
     "sinon": "^7.5.0",
     "sinon-chai": "^3.7.0",
-    "webpack": "^4.46.0"
+    "webpack": "^4.46.0",
+    "yarpm": "^1.1.1"
   },
   "dependencies": {
     "bpmn-moddle": "^7.1.2",
@@ -95,6 +100,7 @@
     "min-dash": "^3.5.2",
     "min-dom": "^3.1.3",
     "object-refs": "^0.3.0",
+    "roughjs": "^4.4.4",
     "tiny-svg": "^2.2.2"
   }
 }
